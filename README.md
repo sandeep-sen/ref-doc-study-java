@@ -5,9 +5,9 @@ Repository to run study on Microsoft Reference docs for Java
 You need to run 3 tasks for this study, for each task a sample task has been provided.
 |#|Sample|Task|
 |---|---|---|
-1|[Print contents of a blob in Azure Storage](src/main/java/com/azure/refdoc/study/App.java?plain=1#27)| Print name of all blob files in Azure Storage container|
-2|[Send 10 messages to Azure Event Hub](src/main/java/com/azure/refdoc/study/App.java?plain=1#42)| Recieve and print messages from Azure Event Hub|
-3|[Update an item in Cosmos DB (NoSQL)](src/main/java/com/azure/refdoc/study/App.java?plain=1#36)| Query and print top 5 items, where elevation = 0
+1|[Print contents of a blob in Azure Storage](src/main/java/com/azure/refdoc/study/App.java?plain=1#L27)| Print name of all blob files in Azure Storage container|
+2|[Send 10 messages to Azure Event Hub](src/main/java/com/azure/refdoc/study/App.java?plain=1#L42)| Recieve and print messages from Azure Event Hub|
+3|[Update an item in Cosmos DB (NoSQL)](src/main/java/com/azure/refdoc/study/App.java?plain=1#L36)| Query and print top 5 items, where elevation = 0
 
 
 # Executing the tasks
