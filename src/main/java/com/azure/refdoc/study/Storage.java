@@ -1,4 +1,4 @@
-package com.azure.refdoc.study.solution;
+package com.azure.refdoc.study;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -9,7 +9,6 @@ import org.slf4j.LoggerFactory;
 import com.azure.storage.blob.BlobContainerClient;
 import com.azure.storage.blob.BlobServiceClient;
 import com.azure.storage.blob.BlobServiceClientBuilder;
-import com.azure.storage.blob.models.BlobItem;
 import com.azure.storage.blob.specialized.BlockBlobClient;
 
 public class Storage {
@@ -43,10 +42,7 @@ public class Storage {
     }
 
     public void getBlobList() throws IOException {
-        logger.info("Getting list of Blobs from container: {}", this.blobContainerClient.getBlobContainerName());
-
-        for (BlobItem blobItem : this.blobContainerClient.listBlobs()) {
-            System.out.println(blobItem.getName());
-        }
+        // TODO: Print the list blobs which are present in Azure storage container
+        // Container name can be accessed from the env
     }
 }

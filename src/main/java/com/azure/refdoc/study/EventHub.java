@@ -1,7 +1,6 @@
-package com.azure.refdoc.study.solution;
+package com.azure.refdoc.study;
 
 import java.text.SimpleDateFormat;
-import java.time.Duration;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
@@ -10,14 +9,10 @@ import java.util.TimeZone;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.azure.core.util.IterableStream;
 import com.azure.messaging.eventhubs.EventData;
 import com.azure.messaging.eventhubs.EventDataBatch;
 import com.azure.messaging.eventhubs.EventHubClientBuilder;
-import com.azure.messaging.eventhubs.EventHubConsumerClient;
 import com.azure.messaging.eventhubs.EventHubProducerClient;
-import com.azure.messaging.eventhubs.models.EventPosition;
-import com.azure.messaging.eventhubs.models.PartitionEvent;
 
 public class EventHub {
     private static final Logger logger = LoggerFactory.getLogger(EventHub.class);
@@ -79,23 +74,10 @@ public class EventHub {
     }
 
     public void consumeMessages() {
-        logger.info("Consuming messages from Event Hub");
-        EventHubConsumerClient consumer = new EventHubClientBuilder()
-                .connectionString(this.eventHubConnectionString)
-                .eventHubName(this.eventHubName)
-                .consumerGroup(EventHubClientBuilder.DEFAULT_CONSUMER_GROUP_NAME)
-                .buildConsumerClient();
-
-        System.out.println(consumer.getPartitionIds());
-
-        IterableStream<String> partitionIds = consumer.getPartitionIds();
-        for (String partitionId : partitionIds) {
-            logger.info("Consuming messages from Event Hub Partition Id: {}", partitionId);
-            IterableStream<PartitionEvent> events = consumer.receiveFromPartition(partitionId, 15,
-                    EventPosition.earliest(), Duration.ofSeconds(40));
-            for (PartitionEvent event : events) {
-                System.out.println("Event: " + event.getData().getBodyAsString());
-            }
-        }
+        // TODO: consume and print all the messages in the event hub
+        // To consume the messages first run the produceEventHubMessage function
+        // and then run the consume function
+        // Consumer group = "$Default" can be accessed from
+        // EventHubClientBuilder.DEFAULT_CONSUMER_GROUP_NAME
     }
 }

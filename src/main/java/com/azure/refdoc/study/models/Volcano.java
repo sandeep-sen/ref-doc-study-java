@@ -1,36 +1,45 @@
 package com.azure.refdoc.study.models;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectWriter;
 
 public class Volcano {
-    @JsonProperty("Volcano Name")
+	@JsonProperty("Volcano Name")
 	private String volcanoName;
-    @JsonProperty("Country")
+	@JsonProperty("Country")
 	private String country;
-    @JsonProperty("Region")
+	@JsonProperty("Region")
 	private String region;
-    @JsonProperty("Location")
+	@JsonProperty("Location")
 	private Location location;
-    @JsonProperty("Elevation")
+	@JsonProperty("Elevation")
 	private Long elevation;
-    @JsonProperty("Type")
+	@JsonProperty("Type")
 	private String type;
-    @JsonProperty("Status")
+	@JsonProperty("Status")
 	private String status;
-    @JsonProperty("Last Known Eruption")
+	@JsonProperty("Last Known Eruption")
 	private String lastKnownEruption;
 	private String id;
-    @JsonProperty("_rid")
+	@JsonProperty("_rid")
 	private String rid;
-    @JsonProperty("_self")
+	@JsonProperty("_self")
 	private String self;
-    @JsonProperty("_etag")
+	@JsonProperty("_etag")
 	private String etag;
-    @JsonProperty("_attachments")
+	@JsonProperty("_attachments")
 	private String attachments;
-    @JsonProperty("_ts")
+	@JsonProperty("_ts")
 	private Long ts;
 
-	public Volcano(String volcanoName, String country, String region, Location location, Long elevation, String type, String status, String lastKnownEruption, String id, String rid, String self, String etag, String attachments, Long ts) {
+	public Volcano() {
+	}
+
+	public Volcano(String volcanoName, String country, String region, Location location, Long elevation, String type,
+			String status, String lastKnownEruption, String id, String rid, String self, String etag,
+			String attachments, Long ts) {
 		this.volcanoName = volcanoName;
 		this.country = country;
 		this.region = region;
@@ -158,5 +167,15 @@ public class Volcano {
 	public void setTs(Long ts) {
 		this.ts = ts;
 	}
-}
 
+	public String toJsonString() {
+		ObjectWriter ow = new ObjectMapper().writer().withDefaultPrettyPrinter();;
+		try {
+			String json = ow.writeValueAsString(this);
+			return json;
+		} catch (JsonProcessingException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+}

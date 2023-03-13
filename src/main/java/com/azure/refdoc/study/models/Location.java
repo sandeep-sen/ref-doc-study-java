@@ -6,6 +6,9 @@ public class Location {
 	private String type;
 	private List<Double> coordinates;
 
+	public Location() {
+	}
+
 	public Location(String type, List<Double> coordinates) {
 		this.type = type;
 		this.coordinates = coordinates;
