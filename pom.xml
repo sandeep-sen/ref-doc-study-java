@@ -5,7 +5,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.azure.storage.sample</groupId>
-  <artifactId>read-blob-sdk</artifactId>
+  <artifactId>ref-doc-study</artifactId>
   <version>1.0-SNAPSHOT</version>
 
   <name>read-blob-sdk</name>
